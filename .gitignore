@@ -182,6 +182,7 @@ cython_debug/
 *.tfstate.*
 .terraform.lock.hcl
 *.terraform
+*.tfvars
 
 # UV
 uv.lock
@@ -194,6 +195,7 @@ Dockerfile.local
 *.exe
 *.dll
 *.so
+*.zip
 
 # OS
 .DS_Store
