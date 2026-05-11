@@ -1,5 +1,5 @@
 """
-Alex Researcher Service - Investment Advice Agent
+Lucas Researcher Service - Investment Advice Agent
 """
 
 import os
@@ -24,7 +24,7 @@ from tools import ingest_financial_document
 # Load environment
 load_dotenv(override=True)
 
-app = FastAPI(title="Alex Researcher Service")
+app = FastAPI(title="Lucas Researcher Service")
 
 
 # Request model
@@ -61,7 +61,7 @@ async def run_research_agent(topic: str = None) -> str:
     with trace("Researcher"):
         async with create_playwright_mcp_server(timeout_seconds=60) as playwright_mcp:
             agent = Agent(
-                name="Alex Investment Researcher",
+                name="Lucas Investment Researcher",
                 instructions=get_agent_instructions(),
                 model=model,
                 tools=[ingest_financial_document],
@@ -77,7 +77,7 @@ async def run_research_agent(topic: str = None) -> str:
 async def root():
     """Health check endpoint."""
     return {
-        "service": "Alex Researcher",
+        "service": "Lucas Researcher",
         "status": "healthy",
         "timestamp": datetime.now(UTC).isoformat(),
     }
@@ -140,9 +140,9 @@ async def health():
     }
 
     return {
-        "service": "Alex Researcher",
+        "service": "Lucas Researcher",
         "status": "healthy",
-        "alex_api_configured": bool(os.getenv("ALEX_API_ENDPOINT") and os.getenv("ALEX_API_KEY")),
+        "lucas_api_configured": bool(os.getenv("LUCAS_API_ENDPOINT") and os.getenv("LUCAS_API_KEY")),
         "timestamp": datetime.now(UTC).isoformat(),
         "debug_container": container_indicators,
         "aws_region": os.environ.get("AWS_DEFAULT_REGION", "not set"),
