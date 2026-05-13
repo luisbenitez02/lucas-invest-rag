@@ -15,7 +15,7 @@ load_dotenv(env_path, override=True)
 
 # Get configuration
 VECTOR_BUCKET = os.getenv('VECTOR_BUCKET')
-SAGEMAKER_ENDPOINT = os.getenv('SAGEMAKER_ENDPOINT', 'alex-embedding-endpoint')
+SAGEMAKER_ENDPOINT = os.getenv('SAGEMAKER_ENDPOINT', 'lucas-embedding-endpoint')
 INDEX_NAME = 'financial-research'
 
 if not VECTOR_BUCKET:
@@ -120,7 +120,7 @@ def search_vectors(query_text, k=5):
 def main():
     """Explore the S3 Vectors database."""
     print("=" * 60)
-    print("Alex S3 Vectors Database Explorer")
+    print("Lucas S3 Vectors Database Explorer")
     print("=" * 60)
     print(f"Bucket: {VECTOR_BUCKET}")
     print(f"Index: {INDEX_NAME}")

@@ -15,7 +15,7 @@ from dotenv import load_dotenv
 load_dotenv(override=True)
 
 
-def run_command(cmd, capture_output=False, shell=False):
+def run_command(cmd, capture_output=False, shell=True):
     """Run a command and handle errors."""
     try:
         result = subprocess.run(
